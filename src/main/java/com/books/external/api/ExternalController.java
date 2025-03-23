@@ -7,6 +7,7 @@ import com.books.external.api.payload.response.aladin.AladinBookResponse;
 import com.books.external.api.payload.response.kakao.KakaoBookResponse;
 import com.books.external.api.payload.response.naver.NaverBookResponse;
 import com.books.external.application.ExternalBooksFacade;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+@Tag(name = "외부 도서 호출")
 @RestController
 @RequestMapping("/api/external")
 @Slf4j
