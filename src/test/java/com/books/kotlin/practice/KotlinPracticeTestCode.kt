@@ -10,6 +10,8 @@ class KotlinPracticeTestCode {
 
     @Test
     fun test() {
+
+        var test = "aaa"
         println(evenNumber)
     }
 }
