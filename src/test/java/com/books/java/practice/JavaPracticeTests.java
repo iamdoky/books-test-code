@@ -1,13 +1,10 @@
 package com.books.java.practice;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Stack;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -23,7 +20,7 @@ public class JavaPracticeTests {
     @DisplayName("문제 1 : 스트림을 사용한 홀수/짝수 분리")
     void test1() {
 
-        List<Integer> numbers = Arrays.asList(1, 4, 6, 7, 3, 8);
+        List<Integer> numbers = List.of(1, 4, 6, 7, 3, 8);
 
         List<Integer> even = numbers.stream()
             .filter(n -> n % 2 == 0)
@@ -50,16 +47,16 @@ public class JavaPracticeTests {
     @DisplayName("문제 3 : 피라미드 출력")
     void test3() {
 
-        String input = "5\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+//        String input = "5\n";
+//        InputStream in = new ByteArrayInputStream(input.getBytes());
+//        System.setIn(in);
+//
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        for (int i = 1; i <= 5; i++) {
 
-        for (int i = 1; i <= n; i++) {
-
-            String spaces = " ".repeat(n - i);
+            String spaces = " ".repeat(5 - i);
             String stars = "*".repeat(i);
 
             System.out.println(spaces + stars);
@@ -71,7 +68,7 @@ public class JavaPracticeTests {
     void test4() {
 
         List<String> list = List.of("hello world", "hi there", "say hello", "goodbye");
-        String keyword = "hello";
+        String keyword = "bye";
 
         list.stream()
             .filter(s -> s.contains(keyword))
@@ -85,7 +82,7 @@ public class JavaPracticeTests {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
         int sum = numbers.stream().filter(n -> n % 2 == 0).mapToInt(n -> n).sum();
 
-        System.out.println(sum); // 출력: 12
+        System.out.println(sum);
     }
 
     @Test
@@ -146,11 +143,11 @@ public class JavaPracticeTests {
     @DisplayName("문제 10 : 중복 제거 후 정렬")
     void test10() {
 
-        List<Integer> list = Arrays.asList(5, 3, 2, 3, 5, 1);
+        List<Integer> list = List.of(5, 3, 2, 3, 5, 1);
         List<Integer> result = list.stream()
             .distinct()
             .sorted()
-            .collect(Collectors.toList());
+            .toList();
 
         System.out.println(result);
     }
@@ -269,7 +266,7 @@ public class JavaPracticeTests {
         List<Character> uppercases = input.chars()
             .mapToObj(c -> (char) c)
             .filter(Character::isUpperCase)
-            .collect(Collectors.toList());
+            .toList();
 
         System.out.println(uppercases);
     }
@@ -298,7 +295,7 @@ public class JavaPracticeTests {
             .toList();
 
         // 4. 결과 출력
-        System.out.println("반복되는 대문자: " + repeatedUpper.size() + "개 → " + repeatedUpper);
-        System.out.println("반복되는 소문자: " + repeatedLower.size() + "개 → " + repeatedLower);
+        System.out.println("반복되는 대문자 : " + repeatedUpper.size() + "개 → " + repeatedUpper);
+        System.out.println("반복되는 소문자 : " + repeatedLower.size() + "개 → " + repeatedLower);
     }
 }
