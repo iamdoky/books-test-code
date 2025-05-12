@@ -289,13 +289,13 @@ public class JavaPracticeTests {
         List<Character> repeatedUpper = freqMap.entrySet().stream()
             .filter(e -> Character.isUpperCase(e.getKey()) && e.getValue() >= 2)
             .map(Map.Entry::getKey)
-            .collect(Collectors.toList());
+            .toList();
 
         // 3. 소문자 중 2번 이상 등장한 문자
         List<Character> repeatedLower = freqMap.entrySet().stream()
             .filter(e -> Character.isLowerCase(e.getKey()) && e.getValue() >= 2)
             .map(Map.Entry::getKey)
-            .collect(Collectors.toList());
+            .toList();
 
         // 4. 결과 출력
         System.out.println("반복되는 대문자: " + repeatedUpper.size() + "개 → " + repeatedUpper);
