@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.junit.jupiter.api.DisplayName;
@@ -257,5 +258,47 @@ public class JavaPracticeTests {
             .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
             .forEach(entry ->
                 System.out.println("숫자 : " + entry.getKey() + " → " + entry.getValue() + "번"));
+    }
+
+    @Test
+    @DisplayName("문제 16 : 입력으로 주어진 문자열에서 대문자 알파벳만 추출하여 리스트 또는 문자열로 반환")
+    void test16() {
+
+        String input = "AbcDefGHiJkL";
+
+        List<Character> uppercases = input.chars()
+            .mapToObj(c -> (char) c)
+            .filter(Character::isUpperCase)
+            .collect(Collectors.toList());
+
+        System.out.println(uppercases);
+    }
+
+    @Test
+    @DisplayName("\t반복되는 대문자의 개수와 어떤 문자들이 반복되었는지 반복되는 소문자의 개수와 어떤 문자들이 반복되었는지를 구하세요.")
+    void test17() {
+
+        String input = "AbCDefGhAaBBccZZzz";
+
+        // 1. 문자별 빈도 계산
+        Map<Character, Long> freqMap = input.chars()
+            .mapToObj(c -> (char) c)
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        // 2. 대문자 중 2번 이상 등장한 문자
+        List<Character> repeatedUpper = freqMap.entrySet().stream()
+            .filter(e -> Character.isUpperCase(e.getKey()) && e.getValue() >= 2)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toList());
+
+        // 3. 소문자 중 2번 이상 등장한 문자
+        List<Character> repeatedLower = freqMap.entrySet().stream()
+            .filter(e -> Character.isLowerCase(e.getKey()) && e.getValue() >= 2)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toList());
+
+        // 4. 결과 출력
+        System.out.println("반복되는 대문자: " + repeatedUpper.size() + "개 → " + repeatedUpper);
+        System.out.println("반복되는 소문자: " + repeatedLower.size() + "개 → " + repeatedLower);
     }
 }
