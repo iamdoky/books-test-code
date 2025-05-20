@@ -9,6 +9,7 @@ import java.util.Stack;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -112,17 +113,50 @@ public class JavaPracticeTests {
     @DisplayName("문제 8 : 피보나치 수열 (재귀 없이)")
     void test8() {
 
+//        int n = 10;
+//        int a = 0, b = 1;
+//
+//        for (int i = 2; i <= n; i++) {
+//
+//            int tmp = a + b;
+//            a = b;
+//            b = tmp;
+//        }
+//
+//        System.out.println(b);
+
         int n = 10;
-        int a = 0, b = 1;
 
-        for (int i = 2; i <= n; i++) {
+        int result = Stream.iterate(
+            new int[]{0, 1}, p -> new int[]{p[1], p[0] + p[1]})
+            .limit(n)
+            .mapToInt(p -> p[0])
+            .max()
+            .orElse(0);
 
-            int tmp = a + b;
-            a = b;
-            b = tmp;
-        }
+        System.out.println(result);
+    }
 
-        System.out.println(b);
+    @Test
+    @DisplayName("문제 8 : 피보나치 수열 (재귀 + 메모이제이션)")
+    void test8_v1() {
+
+        int n = 10;
+        Map<Integer, Integer> memo = new HashMap<>();
+
+        int result = fib(n, memo);
+
+        System.out.println(result);
+    }
+
+    private int fib(int n, Map<Integer, Integer> memo) {
+
+        if (n <= 1) return n;
+        if (memo.containsKey(n)) return memo.get(n);
+        int value = fib(n - 1, memo) + fib(n - 2, memo);
+        memo.put(n, value);
+
+        return value;
     }
 
     @Test
