@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew test:*)",
+      "Bash(./gradlew:*)",
+      "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew test)",
+      "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew test --tests \"*java*\")",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew test --tests \"*BooksApplicationTests*\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
