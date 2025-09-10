@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 @Service
 class KotlinBooksFacade(private val kotlinKakaoBooksService: KotlinKakaoBooksService) {
 
-    fun search(request: KotlinKakaoSearchRequest): KotlinKakaoSearchResponse {
+    suspend fun search(request: KotlinKakaoSearchRequest): KotlinKakaoSearchResponse {
 
         return kotlinKakaoBooksService.search(request)
     }
