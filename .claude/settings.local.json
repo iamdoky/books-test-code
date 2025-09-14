@@ -8,7 +8,8 @@
       "Bash(mkdir:*)",
       "Bash(cp:*)",
       "Bash(rm:*)",
-      "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew test --tests \"*BooksApplicationTests*\")"
+      "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew test --tests \"*BooksApplicationTests*\")",
+      "커밋할때 항상 알려줘 파일을 만들 거나 생성할때도"
     ],
     "deny": [],
     "ask": []
