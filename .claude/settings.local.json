@@ -9,7 +9,12 @@
       "Bash(cp:*)",
       "Bash(rm:*)",
       "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew test --tests \"*BooksApplicationTests*\")",
-      "커밋할때 항상 알려줘 파일을 만들 거나 생성할때도"
+      "커밋할때 항상 알려줘 파일을 만들 거나 생성할때도",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew build)",
+      "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew bootRun --args='--spring.main.class=com.books.BooksKotlinApplication')",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
