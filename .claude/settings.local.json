@@ -14,7 +14,8 @@
       "Bash(git push:*)",
       "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew build)",
       "Bash(JAVA_HOME=/Users/iamdoky/Library/Java/JavaVirtualMachines/corretto-21.0.3/Contents/Home ./gradlew bootRun --args='--spring.main.class=com.books.BooksKotlinApplication')",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "mcp__sequential-thinking__sequentialthinking"
     ],
     "deny": [],
     "ask": []

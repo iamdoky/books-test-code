@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: open-book-test
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+        use_sql_comments: false
+        temp.use_jdbc_metadata_defaults: false
+
+  datasource:
+    url: jdbc:h2:mem:testdb-test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: false
+
+# 테스트용 안전한 API 키 (실제 키가 아닌 테스트용)
+books:
+  aladin:
+    api:
+      TTBKey: "test_aladin_key_safe"
+  kakao:
+    api:
+      kakaoAK: "test_kakao_key_safe"
+  naver:
+    api:
+      client-id: "test_naver_id_safe"
+      client-secret: "test_naver_secret_safe"
+
+logging:
+  level:
+    com.books: DEBUG
+    org.springframework.web.reactive: DEBUG
